@@ -1,0 +1,67 @@
+/* Shared look for every scene. 1920x1080 (long) or 1080x1920 (shorts). */
+:root {
+  --bg: #0b0f17;
+  --panel: #131a26;
+  --line: #243044;
+  --text: #e8ecf3;
+  --muted: #8b97ab;
+  --accent: #4ade80;   /* verdicts, "works" */
+  --warn: #fbbf24;
+  --bad: #f87171;      /* failures, "breaks" */
+  --info: #60a5fa;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 100%; height: 100%; background: var(--bg); color: var(--text);
+  font-family: "Inter", "Inter Display", sans-serif; overflow: hidden; }
+body { position: relative; }
+.stage { position: absolute; inset: 0; padding: 110px 140px 150px; display: flex;
+  flex-direction: column; justify-content: center; gap: 36px; }
+.portrait .stage { padding: 220px 80px 520px; }
+
+h1 { font-size: 104px; line-height: 1.04; font-weight: 800; letter-spacing: -2px; }
+h2 { font-size: 72px; line-height: 1.1; font-weight: 750; letter-spacing: -1px; }
+h3 { font-size: 46px; font-weight: 650; color: var(--muted); }
+p, li { font-size: 46px; line-height: 1.35; }
+.portrait h1 { font-size: 96px; } .portrait h2 { font-size: 76px; }
+.portrait p, .portrait li { font-size: 54px; }
+ul { list-style: none; display: flex; flex-direction: column; gap: 28px; }
+li::before { content: "→ "; color: var(--accent); font-weight: 700; }
+.kicker { font-size: 34px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase;
+  color: var(--accent); }
+.kicker.bad { color: var(--bad); } .kicker.warn { color: var(--warn); } .kicker.info { color: var(--info); }
+.muted { color: var(--muted); }
+.accent { color: var(--accent); } .bad { color: var(--bad); } .warn { color: var(--warn); } .info { color: var(--info); }
+.mono, code { font-family: "DejaVu Sans Mono", monospace; }
+.box { background: var(--panel); border: 2px solid var(--line); border-radius: 22px; padding: 34px 42px; }
+.box.bad { border-color: var(--bad); } .box.good { border-color: var(--accent); }
+.row { display: flex; gap: 40px; align-items: stretch; }
+.row > * { flex: 1; }
+.big-num { font-size: 220px; font-weight: 800; letter-spacing: -6px; line-height: 1; }
+.pill { display: inline-block; padding: 10px 26px; border-radius: 999px; font-size: 34px;
+  font-weight: 700; border: 2px solid currentColor; }
+.term { background: #05070b; border: 2px solid var(--line); border-radius: 18px; padding: 30px 38px;
+  font-family: "DejaVu Sans Mono", monospace; font-size: 36px; line-height: 1.5; color: #cbd5e1; }
+.term .prompt { color: var(--accent); }
+
+/* Source line: every factual scene names where the fact came from. */
+.source { position: absolute; left: 140px; bottom: 60px; font-size: 26px; color: var(--muted); }
+.portrait .source { left: 80px; bottom: 440px; font-size: 30px; }
+.brand { position: absolute; right: 140px; bottom: 60px; font-size: 26px; font-weight: 700;
+  color: var(--muted); letter-spacing: 2px; }
+.portrait .brand { display: none; }
+
+/* Build-in animations. Delays come from d1..d12 (0.35s steps). */
+.in { opacity: 0; animation: fadeUp .6s cubic-bezier(.2,.7,.2,1) forwards; }
+.pop { opacity: 0; animation: pop .5s cubic-bezier(.2,.9,.3,1.3) forwards; }
+.wipe { clip-path: inset(0 100% 0 0); animation: wipe .9s ease-out forwards; }
+.draw { stroke-dasharray: 2000; stroke-dashoffset: 2000; animation: draw 1.2s ease-out forwards; }
+.blink { animation: blink 1s steps(1) infinite; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: none; } }
+@keyframes pop { from { opacity: 0; transform: scale(.85); } to { opacity: 1; transform: none; } }
+@keyframes wipe { to { clip-path: inset(0 0 0 0); } }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+@keyframes blink { 50% { opacity: 0; } }
+.d1 { animation-delay: .35s; } .d2 { animation-delay: .7s; } .d3 { animation-delay: 1.05s; }
+.d4 { animation-delay: 1.4s; } .d5 { animation-delay: 1.75s; } .d6 { animation-delay: 2.1s; }
+.d7 { animation-delay: 2.45s; } .d8 { animation-delay: 2.8s; } .d9 { animation-delay: 3.15s; }
+.d10 { animation-delay: 3.5s; } .d11 { animation-delay: 3.85s; } .d12 { animation-delay: 4.2s; }
