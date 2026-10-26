@@ -1,0 +1,18 @@
+DeepSeek Harness (dsh) agents could switch their own sandbox to danger-full-access with one shell command: no approval prompt, and the log said the user did it. Here's how CVE-2026-82533 worked, what the fix changed, and what it still doesn't cover.
+
+If you run dsh: update to 0.1.2-alpha.2 or later.
+
+{CHAPTERS}
+
+Sources
+- The Hacker News, Sep 9 2026: https://thehackernews.com/2026/09/deepseek-harness-flaw-let-ai-agents.html
+- GitHub advisory GHSA-8m2g-8cgm-3vcp: https://github.com/advisories/GHSA-8m2g-8cgm-3vcp
+- VulnCheck advisory: https://www.vulncheck.com/advisories/deepseek-harness-alpha-1-authentication-bypass-via-host-header-spoofing
+- NVD, CVE-2026-82533: https://nvd.nist.gov/vuln/detail/CVE-2026-82533
+- dsh sandbox docs: https://github.com/deepseek-ai/deepseek-harness/blob/master/docs/subsystems/sandbox.md
+- dsh SAFETY.md: https://github.com/deepseek-ai/deepseek-harness/blob/master/SAFETY.md
+- Discussion #250 (Aug 13): https://github.com/deepseek-ai/deepseek-harness/discussions/250
+- Fix commit: https://github.com/deepseek-ai/deepseek-harness/commit/3e24087bfaeabe40b58ba2f7b936895b8f93fe27
+- Forkast: https://forkast.news/deepseek-harness-sandbox-escape-lets-ai-agents-disable-their-own-confinement/
+
+#AIagents #DeepSeek #AIsecurity

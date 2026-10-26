@@ -1,0 +1,7 @@
+0:00 The bug
+0:36 What dsh is
+1:23 How the escape worked
+3:31 Timeline
+4:17 The fix
+4:43 What to do
+5:22 Verdict
